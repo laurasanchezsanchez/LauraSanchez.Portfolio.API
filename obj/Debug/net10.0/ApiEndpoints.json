@@ -1,0 +1,22 @@
+[
+  {
+    "ContainingType": "LauraSanchez.Portfolio.API.Controllers.AboutController",
+    "Method": "Get",
+    "RelativePath": "api/About",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "LauraSanchez.Portfolio.API.Models.About",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
