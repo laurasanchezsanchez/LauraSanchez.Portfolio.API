@@ -16,9 +16,9 @@ namespace LauraSanchez.Portfolio.API.Controllers
                 Role = "Backend Developer",
                 Description = "Backend developer with experience in C# and .NET, REST APIs, and SQL databases. Passionate about clean code and scalable solutions.",
                 Location = "Linares, Andalusia, Spain",
-                Email = "tu@email.com",
-                GitHub = "https://github.com/tuusuario",
-                LinkedIn = "https://linkedin.com/in/tuusuario"
+                Email = "sanchezlaura.ing@gmail.com",
+                GitHub = "https://github.com/laurasanchezsanchez",
+                LinkedIn = "https://www.linkedin.com/in/laurasanchezsanchezing/"
             };
 
             return Ok(about);
