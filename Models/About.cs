@@ -7,7 +7,7 @@
         public string Description { get; set; }
         public string Location { get; set; }
         public string Email { get; set; }
-        public string GitHub { get; set; }
-        public string LinkedIn { get; set; }
+        public string Github { get; set; }
+        public string Linkedin { get; set; }
     }
 }
