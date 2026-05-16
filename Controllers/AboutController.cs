@@ -1,25 +1,31 @@
-﻿using LauraSanchez.Portfolio.API.Models;
+﻿using LauraSanchez.Portfolio.API.Exceptions;
+using LauraSanchez.Portfolio.API.Models;
+using LauraSanchez.Portfolio.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LauraSanchez.Portfolio.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Produces("application/json")]
     public class AboutController : ControllerBase
     {
-        [HttpGet]
-        public ActionResult<About> Get()
+        private readonly IPortfolioService _service;
+
+        public AboutController(IPortfolioService service)
         {
-            var about = new About
-            {
-                Name = "Laura Sánchez",
-                Role = "Backend Developer",
-                Description = "Backend developer with experience in C# and .NET, REST APIs, and SQL databases. Passionate about clean code and scalable solutions.",
-                Location = "Linares, Andalusia, Spain",
-                Email = "sanchezlaura.ing@gmail.com",
-                Github = "https://github.com/laurasanchezsanchez",
-                Linkedin = "https://www.linkedin.com/in/laurasanchezsanchezing/"
-            };
+            _service = service;
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(About), StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<About>> Get()
+        {
+            var about = await _service.GetAboutAsync();
+
+            if (about is null)
+                throw new NotFoundException("About");
 
             return Ok(about);
         }

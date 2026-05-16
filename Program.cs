@@ -1,18 +1,28 @@
+using LauraSanchez.Portfolio.API.Middleware;
+using LauraSanchez.Portfolio.API.Repositories;
+using LauraSanchez.Portfolio.API.Repositories.Interfaces;
+using LauraSanchez.Portfolio.API.Services;
+using LauraSanchez.Portfolio.API.Services.Interfaces;
+using Scalar.AspNetCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add controllers to handle API endpoints
+// Controllers
 builder.Services.AddControllers();
 
-// Add OpenAPI (Swagger) support
+// OpenAPI
 builder.Services.AddOpenApi();
 
-// Add CORS policy to allow the frontend to call this API
+// Dependency injection — scoped per request
+builder.Services.AddScoped<IPortfolioRepository, JsonPortfolioRepository>();
+builder.Services.AddScoped<IPortfolioService, PortfolioService>();
+
+// CORS — allow any origin for now
+// TODO: restrict to real domain when deployed 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        // Allow any origin, header and method for now
-        // Restrict to the real domain when deployed
         policy.AllowAnyOrigin()
               .AllowAnyHeader()
               .AllowAnyMethod();
@@ -21,22 +31,19 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Enable OpenAPI only in development environment
+// Swagger
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
-// Redirect HTTP to HTTPS
+// Global exception handler — must be first in the pipeline
+app.UseMiddleware<ExceptionMiddleware>();
+
 app.UseHttpsRedirection();
-
-// Apply the CORS policy
 app.UseCors("AllowFrontend");
-
-// Enable authorization middleware
 app.UseAuthorization();
-
-// Map controller routes
 app.MapControllers();
 
 app.Run();

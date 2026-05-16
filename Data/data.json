@@ -1,0 +1,79 @@
+{
+  "about": {
+    "name": "Laura Sánchez",
+    "role": "Backend Developer",
+    "description": "Backend developer with experience in C# and .NET, REST APIs, and SQL databases. Passionate about clean code and scalable solutions.",
+    "location": "Linares, Andalusia, Spain",
+    "email": "sanchezlaura.ing@gmail.com",
+    "github": "https://github.com/laurasanchezsanchez",
+    "linkedin": "https://www.linkedin.com/in/laura-sanchez-sanchez-40571640a/"
+  },
+  "skills": [
+    {
+      "name": "C#",
+      "category": "Languages"
+    },
+    {
+      "name": "ASP.NET Core",
+      "category": "Frameworks"
+    },
+    {
+      "name": "REST APIs",
+      "category": "Frameworks"
+    },
+    {
+      "name": "Entity Framework",
+      "category": "Frameworks"
+    },
+    {
+      "name": "SQL Server",
+      "category": "Databases"
+    },
+    {
+      "name": "MySQL",
+      "category": "Databases"
+    },
+    {
+      "name": "MongoDB",
+      "category": "Databases"
+    },
+    {
+      "name": "Jenkins",
+      "category": "DevOps"
+    },
+    {
+      "name": "Git",
+      "category": "DevOps"
+    },
+    {
+      "name": "Docker",
+      "category": "DevOps"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Solera Inc.",
+      "role": "Backend Developer",
+      "startDate": "October 2022",
+      "endDate": "Present",
+      "description": "Backend development in an international team, building and maintaining REST APIs and data pipelines for the automotive and insurance industry.",
+      "technologies": [ "C#", ".NET", "ASP.NET Web API", "SQL Server", "MySQL", "MongoDB", "Entity Framework", "Jenkins", "IIS" ]
+    },
+    {
+      "company": "Innovasur",
+      "role": "Cybersecurity Analyst Intern",
+      "startDate": "2021",
+      "endDate": "2021",
+      "description": "5-month internship focused on cybersecurity analysis.",
+      "technologies": [ "Cybersecurity" ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Portfolio API",
+      "description": "Personal portfolio backend built with ASP.NET Core 10 and REST APIs.",
+      "technologies": [ "C#", "ASP.NET Core", "REST APIs", ".NET 10" ],
+      "githubUrl": "https://github.com/laurasanchezsanchez/LauraSanchez.Portfolio.API"
+    }
+  ]
+}
