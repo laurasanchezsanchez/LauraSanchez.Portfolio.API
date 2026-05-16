@@ -71,9 +71,24 @@
   "projects": [
     {
       "title": "Portfolio API",
-      "description": "Personal portfolio backend built with ASP.NET Core 10 and REST APIs.",
-      "technologies": [ "C#", "ASP.NET Core", "REST APIs", ".NET 10" ],
-      "githubUrl": "https://github.com/laurasanchezsanchez/LauraSanchez.Portfolio.API"
+      "description": "Personal portfolio backend built with ASP.NET Core .NET 10, clean architecture, repository pattern, security headers and rate limiting.",
+      "technologies": [ "C#", ".NET 10", "ASP.NET Core", "REST APIs", "Docker" ],
+      "gitHubUrl": "https://github.com/laurasanchezsanchez/LauraSanchez.Portfolio.API",
+      "liveUrl": "https://laura-sanchez-portfolio-api.onrender.com/api/about"
+    },
+    {
+      "title": "Portfolio Web",
+      "description": "Personal portfolio frontend built with Next.js, consuming the Portfolio API.",
+      "technologies": [ "Next.js", "React", "TypeScript", "Tailwind CSS" ],
+      "gitHubUrl": "https://github.com/laurasanchezsanchez/LauraSanchez.Portfolio.Web",
+      "liveUrl": "https://laura-sanchez-portfolio.vercel.app/"
+    },
+    {
+      "title": "DSM Seguridad — Corporate Website",
+      "description": "Full corporate website for a security camera company with legal documents, technical manuals and tutorials.",
+      "technologies": [ "Next.js", "React", "TypeScript", "Tailwind CSS" ],
+      "gitHubUrl": "https://github.com/laurasanchezsanchez/DSMSeguridad.Web",
+      "liveUrl": "https://dsm-seguridad-web.vercel.app/"
     }
   ]
 }

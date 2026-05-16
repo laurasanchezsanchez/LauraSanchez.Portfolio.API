@@ -6,5 +6,7 @@
         public string Description { get; set; }
         public List<string> Technologies { get; set; }
         public string GithubUrl { get; set; }
+
+        public string LiveUrl { get; set; }
     }
 }
