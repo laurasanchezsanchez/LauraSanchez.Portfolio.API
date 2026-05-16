@@ -3,6 +3,7 @@ using LauraSanchez.Portfolio.API.Repositories;
 using LauraSanchez.Portfolio.API.Repositories.Interfaces;
 using LauraSanchez.Portfolio.API.Services;
 using LauraSanchez.Portfolio.API.Services.Interfaces;
+using Microsoft.AspNetCore.RateLimiting;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,6 +30,20 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Rate limiting — prevent abuse
+builder.Services.AddRateLimiter(options =>
+{
+    options.AddFixedWindowLimiter("fixed", limiter =>
+    {
+        limiter.Window = TimeSpan.FromMinutes(1);
+        limiter.PermitLimit = 30;
+        limiter.QueueProcessingOrder = System.Threading.RateLimiting.QueueProcessingOrder.OldestFirst;
+        limiter.QueueLimit = 0;
+    });
+
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+});
+
 var app = builder.Build();
 
 // Swagger
@@ -43,6 +58,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 app.UseCors("AllowFrontend");
+app.UseRateLimiter();
 app.UseAuthorization();
 app.MapControllers();
 

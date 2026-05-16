@@ -1,9 +1,11 @@
 ﻿using LauraSanchez.Portfolio.API.Models;
 using LauraSanchez.Portfolio.API.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace LauraSanchez.Portfolio.API.Controllers
 {
+    [EnableRateLimiting("fixed")]
     [ApiController]
     [Route("api/[controller]")]
     [Produces("application/json")]
