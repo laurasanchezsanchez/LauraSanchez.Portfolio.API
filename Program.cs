@@ -8,6 +8,12 @@ using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.AddServerHeader = false;
+});
+
+
 // Controllers
 builder.Services.AddControllers();
 
@@ -44,6 +50,7 @@ builder.Services.AddRateLimiter(options =>
     options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
 });
 
+
 var app = builder.Build();
 
 // Swagger
@@ -55,6 +62,7 @@ if (app.Environment.IsDevelopment())
 
 // Global exception handler — must be first in the pipeline
 app.UseMiddleware<ExceptionMiddleware>();
+app.UseMiddleware<SecurityHeadersMiddleware>();
 
 app.UseHttpsRedirection();
 app.UseCors("AllowFrontend");
