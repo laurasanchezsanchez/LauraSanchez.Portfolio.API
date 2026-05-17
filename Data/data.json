@@ -9,10 +9,22 @@
     "linkedin": "https://www.linkedin.com/in/laurasanchezsanchezing/"
   },
   "skills": [
-    {
-      "name": "C#",
-      "category": "Languages"
-    },
+  {
+    "name": "C#",
+    "category": "Languages"
+  },
+  {
+    "name": "Java",
+    "category": "Languages"
+  },
+  {
+    "name": "JavaScript",
+    "category": "Languages"
+  },
+  {
+    "name": "Python",
+    "category": "Languages"
+  },
     {
       "name": "ASP.NET Core",
       "category": "Frameworks"
